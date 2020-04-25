@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT LazyTextTheme (window, customcomponents?)>
+
+<!ELEMENT window (baseFont?, menuBar, findTextMenu, 
+themeChooserMenu, textAreaScrollBars, lineNumberArea, textArea, statusBar)>
+
+<!ELEMENT baseFont EMPTY>
+<!ELEMENT menuBar EMPTY>
+<!ELEMENT findTextMenu EMPTY>
+<!ELEMENT themeChooserMenu EMPTY>
+<!ELEMENT textAreaScrollBars EMPTY>
+<!ELEMENT lineNumberArea EMPTY>
+<!ELEMENT textArea EMPTY>
+<!ELEMENT statusBar EMPTY>
+
+<!ELEMENT customcomponents (components)*>
+<!ELEMENT components (#PCDATA)>
+
+
+<!ATTLIST baseFont
+    family CDATA #IMPLIED
+    fontSize CDATA #IMPLIED
+>
+
+<!ATTLIST menuBar
+    fgColor CDATA #REQUIRED
+    bgColor CDATA #REQUIRED
+>
+
+<!ATTLIST findTextMenu
+    bgColor CDATA #REQUIRED
+>
+
+<!ATTLIST themeChooserMenu
+    fgColor CDATA #REQUIRED
+    bgColor CDATA #REQUIRED
+>
+
+<!ATTLIST textAreaScrollBars
+    thmbColor CDATA #REQUIRED
+    bgColor CDATA #IMPLIED
+    scrollBarWidth CDATA #IMPLIED
+>
+
+<!ATTLIST lineNumberArea
+    fgColor CDATA #REQUIRED
+    bgColor CDATA #IMPLIED
+>
+
+<!ATTLIST textArea
+    fgColor CDATA #REQUIRED
+    bgColor CDATA #REQUIRED
+    caretColor CDATA #IMPLIED
+>
+
+<!ATTLIST statusBar
+    fgColor CDATA #REQUIRED
+    bgColor CDATA #REQUIRED
+>
+
+<!ATTLIST components
+    fgColor CDATA #REQUIRED
+    bgColor CDATA #REQUIRED
+>

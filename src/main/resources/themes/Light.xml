@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LazyTextTheme SYSTEM "theme.dtd">
+
+<LazyTextTheme>
+    <window>
+        <baseFont family="Sans-Serif" fontSize="26"/>
+        <menuBar fgColor="#212121" bgColor="#EEEEEE"/>
+        <findTextMenu bgColor="#EEEEEE"/>
+        <themeChooserMenu fgColor="#000000" bgColor="#E0E0E0"/>
+        <textAreaScrollBars thmbColor="#CCCCCC" bgColor="#EEEEEE"/>
+        <lineNumberArea fgColor="#212121" bgColor="#ffffff"/>
+        <textArea fgColor="#212121" bgColor="#ffffff" caretColor="#212121"/>
+        <statusBar fgColor="#212121" bgColor="#EEEEEE"/>
+    </window>
+    <customcomponents>
+    </customcomponents>
+</LazyTextTheme>
