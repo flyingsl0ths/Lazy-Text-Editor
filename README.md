@@ -1,14 +1,14 @@
 # LazyText Editor ![Lazy_Text_Editor_Logo](github_res/icon.png)
 Lightweight text editor in the making written in Java using Swing
 
-![Lazy_Text_Editor_highlight](github_res/Capture.png)
+![Lazy_Text_Editor_demo](github_res/Capture.png)
 
 # Current Features Available
 * Cut/Copy/Paste
 * Undo/Redo
 * Keyboard Shortcuts
 * Line Numbers
-* XML Theming System
+* XML Theme System
   * Current Themes available:
   * Light
   * Dark
@@ -33,7 +33,7 @@ Lightweight text editor in the making written in Java using Swing
   * _handles displaying the actual program_
 
 * **Theme.java**
-  * _Handles anything & everything within the XML Theming System_
+  * _Handles anything & everything relating to the XML Theme System_
 
 * **ThemeChooser.java**
   * _Handles displaying all themes available & setting themes_
@@ -52,25 +52,29 @@ Lightweight text editor in the making written in Java using Swing
 
 # Contributing
 
-* This ensures the project's codebase is kept consistent & easy to understand
+* This repo uses the *git branching model** for contributions
+    * Instructions:
+    1. Create a branch
+    2. Make some changes
+    3. Open PR
+        3-1. Wait for changes to be approved.
+    4. Merge
 
+* This ensures the project's codebase is kept consistent & easy to understand
 1. Follow this coding style
 
    ![coding_style](github_res/coding_style.png)
 
 2. Use descriptive variable & method names
 
-3. Use seperation of concerns
-
-4. Use single responsibility principle
-
-5. Add comment at the end of a method/class depicting it's end point
+3. Add comment at the end of a method/class depicting its end point
    on a new line as such:
    
    `// End of methodName/className`
 
 # Building From Source
-* Can be built using MAVEN
+1. Import project into Intellij
+2. Compile via **Maven**
 
 # Building Custom Themes
 
@@ -80,7 +84,7 @@ Lightweight text editor in the making written in Java using Swing
 
   ![theme_template](github_res/xml_template.png)
 
-* Second place **new_theme.xml** file in within the **themes/** directory in **res/**
+* Second, place **new_theme.xml** file in within the **themes/** directory in **res/**
   
   ![placing_new_theme_in_directory](github_res/adding_new_theme.png)
 
@@ -89,12 +93,12 @@ Lightweight text editor in the making written in Java using Swing
   ![selecting_new_theme](github_res/selecting_newly_added_theme.png)
 
 
-## Theming New Components
+## Applying a Theme to New Components
 
 * To theme newly added components you will have to include it within the xml file
   under `<customcomponents>` and make custom methods that theme all components you wish to include and use the 
   `static` method, `Theme.getCustomComponentParsedThemeValues("nameOfComponent");` & `getColorValue("hexadecimalString")`.
   Which returns a `String[]` of values specified by you for your component and convert any hexadecimal string
-  into it's corresponding color
+  into it's corresponding color.
 
-  ![theming_new_components](github_res/theming_new_components.png)
+  ![theme_new_components](github_res/theming_new_components.png)
