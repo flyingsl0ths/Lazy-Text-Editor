@@ -14,6 +14,7 @@ import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
@@ -57,9 +58,18 @@ public class MenuBarUtils {
         ((JTextPane) statusBar.getComponentAtIndex(index)).setText(message);
     } // End of setStatusBarComponentStatus
 
-    public static void reloadFile(LazyText window, File openedFile) throws IOException {
-        window.getTextArea().setText(null);
-        window.getFrame().setTitle(openedFile.getCanonicalPath() + " - LazyText");
+    public static void clearTextArea(JTextArea textArea) {
+        textArea.setText(null);
+    }
+
+    public static void updateWindowTitle(JFrame windowFrame, String message) {
+        windowFrame.setTitle(message);
+    }
+
+    public static void reloadFileInWindow(LazyText window, File openedFile) throws IOException {
+        clearTextArea(window.getTextArea());
+        updateWindowTitle(window.getFrame(), openedFile.getCanonicalPath() + " - LazyText");
+        ;
         setStatusBarComponentStatus(window.getStatusBar(), 2, extractFileExtension(openedFile.getName()));
         setStatusBarComponentStatus(window.getStatusBar(), 3, extractFileEncoding(openedFile));
         readFile(openedFile, window.getTextArea());
@@ -88,8 +98,8 @@ public class MenuBarUtils {
 
     public static void closeFile(LazyText window) {
         if (!window.getFrame().getTitle().equals("LazyText")) {
-            window.getFrame().setTitle("LazyText");
-            window.getTextArea().setText(null);
+            updateWindowTitle(window.getFrame(), "LazyText");
+            clearTextArea(window.getTextArea());
             setStatusBarComponentStatus(window.getStatusBar(), 2, "Text");
             setStatusBarComponentStatus(window.getStatusBar(), 3, "UTF8");
         }
@@ -103,7 +113,7 @@ public class MenuBarUtils {
 
             try {
                 File file = filePicker.getSelectedFile();
-                reloadFile(window, file);
+                reloadFileInWindow(window, file);
 
             } catch (FileNotFoundException e) {
                 alertUser("File Not Found", "Error", errorMsg);
@@ -128,7 +138,7 @@ public class MenuBarUtils {
             try {
                 File openedFile = filePicker.getSelectedFile();
                 writeToFile(openedFile.getCanonicalPath(), window.getTextArea().getText());
-                reloadFile(window, openedFile);
+                reloadFileInWindow(window, openedFile);
 
             } catch (IOException e) {
                 alertUser("An Unknown Error Occurred", "Error", errorMsg);
