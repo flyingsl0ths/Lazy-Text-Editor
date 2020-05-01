@@ -54,11 +54,11 @@ Lightweight text editor in the making written in Java using Swing
 
 * This repo uses the *git branching model** for contributions
     * Instructions:
-    1. Create a branch
-    2. Make some changes
-    3. Open PR
-        3-1. Wait for changes to be approved.
-    4. Merge
+    * Create a branch
+    * Make some changes
+    * Open PR, highlighting changes to be merged.
+    * Wait for changes to be approved.
+    * Merge
 
 * This ensures the project's codebase is kept consistent & easy to understand
 1. Follow this coding style
