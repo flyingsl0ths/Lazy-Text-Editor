@@ -35,11 +35,11 @@ public class LazyText {
     private final MenuItemListener menuItemListener = new MenuItemListener(LazyText.this);
     private final Theme lazyTextTheme = new Theme(LazyText.this);
     private JMenuBar menuBar;
-    private final String[] commands = { "New", "Open File", "Save", "Save As", "Close File", "Themes", "Exit", "Undo", "Redo",
-            "Cut", "Copy", "Paste", "Find", "Replace", "Timestamp", "About" };
-    private final int[] keyCodes = { KeyEvent.VK_N, KeyEvent.VK_O, KeyEvent.VK_S, KeyEvent.VK_L, KeyEvent.VK_P, KeyEvent.VK_K,
+    private final String[] commands = {"New", "Open File", "Save", "Save As", "Close File", "Themes", "Exit", "Undo", "Redo",
+            "Cut", "Copy", "Paste", "Find", "Replace", "Timestamp", "About"};
+    private final int[] keyCodes = {KeyEvent.VK_N, KeyEvent.VK_O, KeyEvent.VK_S, KeyEvent.VK_L, KeyEvent.VK_P, KeyEvent.VK_K,
             KeyEvent.VK_T, KeyEvent.VK_Z, KeyEvent.VK_Y, KeyEvent.VK_X, KeyEvent.VK_C, KeyEvent.VK_V, KeyEvent.VK_F,
-            KeyEvent.VK_R, KeyEvent.VK_E, KeyEvent.VK_K };
+            KeyEvent.VK_R, KeyEvent.VK_E, KeyEvent.VK_K};
     private final Map<String, Integer> keyMappings = new HashMap<>();
     private final UndoManager manager = new UndoManager();
     private String currentTheme = "Light.xml";
@@ -75,17 +75,14 @@ public class LazyText {
 
     private void loadLastUsedTheme() {
         BufferedReader getInfo;
-        String fallbackTheme = "Light.xml";
         try {
-            getInfo = new BufferedReader(new FileReader("src/main/resources/themes/last_used_theme.txt"));
+            getInfo = new BufferedReader(new FileReader("src/main/resources/last_used_theme.txt"));
             String lastThemeUsed = getInfo.readLine();
             if (!lastThemeUsed.isEmpty()) {
                 this.currentTheme = lastThemeUsed;
-            } else {
-                this.currentTheme = fallbackTheme;
             }
         } catch (IOException e) {
-            this.currentTheme = fallbackTheme;
+            System.exit(1);
         }
 
         // Set the default theme
