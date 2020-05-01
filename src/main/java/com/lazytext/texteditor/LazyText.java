@@ -49,6 +49,7 @@ public class LazyText {
     private JScrollPane scrollableTextArea;
     private JToolBar statusBar;
     private String versionNumber = "1.0";
+    private BufferedReader themeReader = null;
 
     public LazyText() {
         // Initializes JFrame
@@ -74,16 +75,17 @@ public class LazyText {
     } // end of LazyText Constructor
 
     private void loadLastUsedTheme() {
-        BufferedReader getInfo;
         try {
-            getInfo = new BufferedReader(new FileReader("src/main/resources/last_used_theme.txt"));
-            String lastThemeUsed = getInfo.readLine();
+            this.themeReader = new BufferedReader(new FileReader("src/main/resources/themes/last_used_theme.txt"));
+            String lastThemeUsed = this.themeReader.readLine();
             if (!lastThemeUsed.isEmpty()) {
                 this.currentTheme = lastThemeUsed;
             }
+            this.themeReader.close();
         } catch (IOException e) {
             System.exit(1);
         }
+
 
         // Set the default theme
         this.lazyTextTheme.buildTheme(this.currentTheme);
@@ -219,7 +221,7 @@ public class LazyText {
                 setAccelerator(this.keyMappings.get(command), newMenuItem);
                 break;
         }
-    } // End of setShorcuts
+    } // End of setShortcuts
 
     private JMenuItem createMenuItem(String menuName) {
 
