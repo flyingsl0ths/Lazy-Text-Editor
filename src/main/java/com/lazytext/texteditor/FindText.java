@@ -179,31 +179,17 @@ public class FindText {
         this.themeSearchBox(bgColor);
     } // End of themeComponents
 
-    private void assignXCoordinate() {
-        // Gets dimensions of window
-        Dimension windowSize = this.window.getFrame().getSize();
-        // X axis where Find/FindAndReplace Component is to be displayed
-        double searchBoxLocationX = windowSize.getWidth() - 320;
-
-        this.x = (int) searchBoxLocationX;
-    } // End of assignXCoordinate
-
-    private void assignYCoordinate() {
-
-        this.y = this.window.getMenuBar().getHeight() + 30;
-    } // End of assignYCoordinate
-
-    private void assignXYCoordinates() {
+    private void assignDimensions() {
         // Handles where the PopUpMenu should be displayed on the X/Y-axis
-        this.assignXCoordinate();
-        this.assignYCoordinate();
+        this.x = (int) this.window.getFrame().getSize().getWidth() - 320;
+        this.y = this.window.getMenuBar().getHeight() + 30;
+
+        this.searchBox.setMaximumSize(new Dimension(150, 300));
     }
 
     private void displayPopUpMenu() {
-        this.assignXYCoordinates();
-
+        this.assignDimensions();
         this.searchBox.show(this.window.getFrame(), this.x, this.y);
-
         this.searchField.requestFocus();
     }
 
