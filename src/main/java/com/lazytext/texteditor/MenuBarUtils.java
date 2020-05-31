@@ -69,7 +69,7 @@ public class MenuBarUtils {
     public static void reloadFileInWindow(LazyText window, File openedFile) throws IOException {
         clearTextArea(window.getTextArea());
         updateWindowTitle(window.getFrame(), openedFile.getCanonicalPath() + " - LazyText");
-        ;
+
         setStatusBarComponentStatus(window.getStatusBar(), 2, extractFileExtension(openedFile.getName()));
         setStatusBarComponentStatus(window.getStatusBar(), 3, extractFileEncoding(openedFile));
         readFile(openedFile, window.getTextArea());
@@ -82,17 +82,18 @@ public class MenuBarUtils {
     } // End of writeToFile
 
     public static String extractFileExtension(String fileName) {
-        return fileName.substring((fileName.indexOf(".") + 1)).toUpperCase();
+        int extension_index = fileName.indexOf(".");
+        if (extension_index != -1) {
+            return fileName.substring(extension_index + 1).toUpperCase();
+        }
+        return "Text";
     }
 
     public static String extractFileEncoding(File f) {
         try {
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(f));
-            String fileEnc = reader.getEncoding();
-            reader.close();
-            return fileEnc;
+            return new InputStreamReader(new FileInputStream(f)).getEncoding();
         } catch (IOException e) {
-            return "";
+            return " ";
         }
     } // End of extractFileEncoding
 
