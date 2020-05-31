@@ -138,10 +138,8 @@ public class ThemeChooser {
     } // End of themeComponents
 
     private void assignXCoordinate() {
-        // Gets dimensions of window
-        Dimension windowSize = this.window.getFrame().getSize();
         // X axis where Find/FindAndReplace Component is to be displayed
-        double searchBoxLocationX = windowSize.getWidth();
+        double searchBoxLocationX = this.window.getFrame().getSize().getWidth();
 
         if (searchBoxLocationX == 1550.0) {
             this.x = (int) searchBoxLocationX - 970;
@@ -152,18 +150,16 @@ public class ThemeChooser {
         }
     } // End of assignXCoordinate
 
-    private void assignYCoordinate() {
-        this.y = this.window.getMenuBar().getHeight() + 30;
-    } // End of assignYCoordinate
-
-    private void assignXYCoordinates() {
+    private void assignDimensions() {
         // Handles where the PopUpMenu should be displayed on the X/Y-axis
         this.assignXCoordinate();
-        this.assignYCoordinate();
+        this.y = this.window.getMenuBar().getHeight() + 30;
+
+        this.themeMenu.setMaximumSize(new Dimension(100, 100));
     } // End of assignXYCoordinates
 
     private void displayThemeMenu() {
-        this.assignXYCoordinates();
+        this.assignDimensions();
         this.themeMenu.show(this.window.getFrame(), this.x, this.y);
     } // End of displayThemeMenu
 
