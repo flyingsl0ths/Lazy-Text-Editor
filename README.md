@@ -1,4 +1,5 @@
 # LazyText Editor ![Lazy_Text_Editor_Logo](github_res/icon.png)
+
 Lightweight text editor in the making written in Java using Swing
 
 ![Lazy_Text_Editor_demo](github_res/Capture.png)
@@ -27,29 +28,6 @@ Lightweight text editor in the making written in Java using Swing
   * Display File Extension
   * Display File Encoding
 
-# Project Structure
-
-* **LazyText.java**
-  * _handles displaying the actual program_
-
-* **Theme.java**
-  * _Handles anything & everything relating to the XML Theme System_
-
-* **ThemeChooser.java**
-  * _Handles displaying all themes available & setting themes_
-
-* **MenuBarItemListener.java**
-  * _Handles all events each menuBarItem dispatches_
-
-* **MenuBarUtils.java**
-  * _Handles all functions related to the menuBar_
-
-* **LineNumberListener.java**
-  * _Handles updating the current line & column the caret is on_
-
-* **NewLineListener.java**
-  * _Handles adding a new line number when needed_
-
 # Contributing
 
 * This repo uses the *git branching model** for contributions
@@ -61,13 +39,10 @@ Lightweight text editor in the making written in Java using Swing
     * Merge
 
 * This ensures the project's codebase is kept consistent & easy to understand
-1. Follow this coding style
 
-   ![coding_style](github_res/coding_style.png)
+1. Use descriptive variable & method names
 
-2. Use descriptive variable & method names
-
-3. Add comment at the end of a method/class depicting its end point
+2. Add comment at the end of a method/class depicting its end point
    on a new line as such:
    
    `// End of methodName/className`
