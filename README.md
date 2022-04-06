@@ -2,9 +2,7 @@
 
 Lightweight text editor in the making written in Java using Swing
 
-<video width="320" height="240" controls>
-  <source src="github_res/demo.mp4" type="video/mp4">
-</video>
+[![Demo](https://img.youtube.com/vi/2mZhzlp-F54/maxresdefault.jpg)](https://youtu.be/2mZhzlp-F54)
 
 # Current Features Available
 * Cut/Copy/Paste
