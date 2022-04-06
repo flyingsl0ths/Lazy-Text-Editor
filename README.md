@@ -2,7 +2,9 @@
 
 Lightweight text editor in the making written in Java using Swing
 
-![Lazy_Text_Editor_demo](github_res/Capture.png)
+<video width="320" height="240" controls>
+  <source src="github_res/demo.mp4" type="video/mp4">
+</video>
 
 # Current Features Available
 * Cut/Copy/Paste
